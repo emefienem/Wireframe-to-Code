@@ -70,7 +70,7 @@ export default function Home() {
           <div className="mt-5 max-w-2xl text-center mx-auto">
             <h1 className="block font-bold text-gray-800 text-4xl md:text-5xl lg:text-6xl dark:text-neutral-200">
               Build Something
-              <span className="bg-clip-text bg-gradient-to-tl from-blue-600 to-violet-600 text-transparent">
+              <span className="bg-clip-text bg-gradient-to-tl from-green-600 to-green-700 text-transparent">
                 {" "}
                 With NextJs
               </span>
@@ -87,8 +87,8 @@ export default function Home() {
           <div className="mt-8 gap-3 flex justify-center">
             <a
               className="inline-flex justify-center items-center 
-      gap-x-3 text-center bg-gradient-to-tl from-blue-600
-       to-violet-600 hover:from-violet-600 hover:to-blue-600 border border-transparent text-white text-sm font-medium rounded-md focus:outline-none focus:ring-1 focus:ring-gray-600 py-3 px-4 dark:focus:ring-offset-gray-800"
+      gap-x-3 text-center bg-gradient-to-tl from-green-600
+       to-green-600 hover:from-green-700 hover:to-green-600 border border-transparent text-white text-sm font-medium rounded-md focus:outline-none focus:ring-1 focus:ring-gray-600 py-3 px-4 dark:focus:ring-offset-gray-800"
               href="/dashboard"
             >
               Get started
@@ -117,7 +117,7 @@ export default function Home() {
             className="group flex flex-col justify-center hover:bg-gray-50 rounded-xl p-4 md:p-7 dark:hover:bg-neutral-800"
             href="#"
           >
-            <div className="flex justify-center items-center size-12 bg-blue-600 rounded-xl">
+            <div className="flex justify-center items-center size-12 bg-green-600 rounded-xl">
               <svg
                 className="flex-shrink-0 size-6 text-white"
                 xmlns="http://www.w3.org/2000/svg"
@@ -142,7 +142,7 @@ export default function Home() {
               <p className="mt-1 text-gray-600 dark:text-neutral-400">
                 Responsive, and mobile-first project on the web
               </p>
-              <span className="mt-2 inline-flex items-center gap-x-1.5 text-sm text-blue-600 decoration-2 group-hover:underline font-medium">
+              <span className="mt-2 inline-flex items-center gap-x-1.5 text-sm text-green-600 decoration-2 group-hover:underline font-medium">
                 Learn more
                 <svg
                   className="flex-shrink-0 size-4"
@@ -166,7 +166,7 @@ export default function Home() {
             className="group flex flex-col justify-center hover:bg-gray-50 rounded-xl p-4 md:p-7 dark:hover:bg-neutral-800"
             href="#"
           >
-            <div className="flex justify-center items-center size-12 bg-blue-600 rounded-xl">
+            <div className="flex justify-center items-center size-12 bg-green-600 rounded-xl">
               <svg
                 className="flex-shrink-0 size-6 text-white"
                 xmlns="http://www.w3.org/2000/svg"
@@ -192,7 +192,7 @@ export default function Home() {
               <p className="mt-1 text-gray-600 dark:text-neutral-400">
                 Components are easily customized and extendable
               </p>
-              <span className="mt-2 inline-flex items-center gap-x-1.5 text-sm text-blue-600 decoration-2 group-hover:underline font-medium">
+              <span className="mt-2 inline-flex items-center gap-x-1.5 text-sm text-green-600 decoration-2 group-hover:underline font-medium">
                 Learn more
                 <svg
                   className="flex-shrink-0 size-4"
@@ -216,7 +216,7 @@ export default function Home() {
             className="group flex flex-col justify-center hover:bg-gray-50 rounded-xl p-4 md:p-7 dark:hover:bg-neutral-800"
             href="#"
           >
-            <div className="flex justify-center items-center size-12 bg-blue-600 rounded-xl">
+            <div className="flex justify-center items-center size-12 bg-green-600 rounded-xl">
               <svg
                 className="flex-shrink-0 size-6 text-white"
                 xmlns="http://www.w3.org/2000/svg"
@@ -240,7 +240,7 @@ export default function Home() {
               <p className="mt-1 text-gray-600 dark:text-neutral-400">
                 Every component and plugin is well documented
               </p>
-              <span className="mt-2 inline-flex items-center gap-x-1.5 text-sm text-blue-600 decoration-2 group-hover:underline font-medium">
+              <span className="mt-2 inline-flex items-center gap-x-1.5 text-sm text-green-600 decoration-2 group-hover:underline font-medium">
                 Learn more
                 <svg
                   className="flex-shrink-0 size-4"
@@ -264,7 +264,7 @@ export default function Home() {
             className="group flex flex-col justify-center hover:bg-gray-50 rounded-xl p-4 md:p-7 dark:hover:bg-neutral-800"
             href="#"
           >
-            <div className="flex justify-center items-center size-12 bg-blue-600 rounded-xl">
+            <div className="flex justify-center items-center size-12 bg-green-600 rounded-xl">
               <svg
                 className="flex-shrink-0 size-6 text-white"
                 xmlns="http://www.w3.org/2000/svg"
@@ -288,7 +288,7 @@ export default function Home() {
               <p className="mt-1 text-gray-600 dark:text-neutral-400">
                 Contact us 24 hours a day, 7 days a week
               </p>
-              <span className="mt-2 inline-flex items-center gap-x-1.5 text-sm text-blue-600 decoration-2 group-hover:underline font-medium">
+              <span className="mt-2 inline-flex items-center gap-x-1.5 text-sm text-green-600 decoration-2 group-hover:underline font-medium">
                 Learn more
                 <svg
                   className="flex-shrink-0 size-4"
