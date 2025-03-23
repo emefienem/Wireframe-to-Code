@@ -16,6 +16,9 @@ import {
 } from "@/components/ui/select";
 import { storage } from "@/configs/firebaseConfig";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import axios from "axios";
+import uuid4 from "uuid4";
+import { useAuthContext } from "@/app/provider";
 
 const ImageUpload = () => {
   const AIModel = [
@@ -36,6 +39,7 @@ const ImageUpload = () => {
   const [file, setFile] = useState<any>();
   const [model, setModel] = useState<string>();
   const [description, setDescription] = useState<string>();
+  const { user } = useAuthContext();
 
   const onImageSelect = (event: ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
@@ -82,12 +86,21 @@ const ImageUpload = () => {
     localStorage.setItem("selectedModel", storedModel);
     localStorage.setItem("description", storedDescription);
 
-    console.log("Image Data URL:", storedImage);
-    console.log("Selected AI Model:", storedModel);
-    console.log("Description:", storedDescription);
+    // console.log("Image Data URL:", storedImage);
+    // console.log("Selected AI Model:", storedModel);
+    // console.log("Description:", storedDescription);
 
-    // Simulating an action like sending this data to an API
-    alert("Data stored successfully! (Check console for details)");
+    // // Simulating an action like sending this data to an API
+    console.log("Uploaded Successfully!");
+    const uid = uuid4();
+    const result = await axios.post("/api/wireframe-to-code", {
+      uid: uid,
+      description: storedDescription,
+      imageUrl: storedImage,
+      model: storedModel,
+      email: user?.email,
+    });
+    console.log(result.data);
   };
 
   useEffect(() => {
@@ -97,6 +110,7 @@ const ImageUpload = () => {
 
   const clearPreview = () => {
     setPreviewUrl(null);
+    setFile(undefined);
     localStorage.removeItem("previewImage");
   };
 
