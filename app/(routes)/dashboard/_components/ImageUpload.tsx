@@ -48,7 +48,7 @@ const ImageUpload = () => {
       reader.onload = () => {
         if (reader.result) {
           localStorage.setItem("previewImage", reader.result as string);
-          console.log("Image saved...");
+          // console.log("Image saved...");
           setPreviewUrl(reader.result as string);
           setFile(files[0]);
         }
@@ -68,6 +68,28 @@ const ImageUpload = () => {
   //   const imageUrl = await getDownloadURL(imageRef);
   //   console.log(imageUrl);
   // };
+
+  const onConvertToCodeButtonClick = async () => {
+    const storedImage = localStorage.getItem("previewImage");
+    const storedModel = model;
+    const storedDescription = description;
+
+    if (!storedImage || !storedModel || !storedDescription) {
+      console.error("Missing data. Please Select All Fields.");
+      return;
+    }
+
+    localStorage.setItem("selectedModel", storedModel);
+    localStorage.setItem("description", storedDescription);
+
+    console.log("Image Data URL:", storedImage);
+    console.log("Selected AI Model:", storedModel);
+    console.log("Description:", storedDescription);
+
+    // Simulating an action like sending this data to an API
+    alert("Data stored successfully! (Check console for details)");
+  };
+
   useEffect(() => {
     const savedImage = localStorage.getItem("previewImage");
     if (savedImage) setPreviewUrl(savedImage);
@@ -161,7 +183,7 @@ const ImageUpload = () => {
         </div>
       </div>
       <div className="mt-10 flex items-center justify-center">
-        <Button>
+        <Button onClick={onConvertToCodeButtonClick}>
           {" "}
           <WandSparkles /> Convert to Code
         </Button>
