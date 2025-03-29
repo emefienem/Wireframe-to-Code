@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { CloudUpload, WandSparkles, X } from "lucide-react";
+import { CloudUpload, Loader2Icon, WandSparkles, X } from "lucide-react";
 import Image from "next/image";
 import React, { ChangeEvent, useEffect, useState } from "react";
 
@@ -19,27 +19,17 @@ import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import axios from "axios";
 import uuid4 from "uuid4";
 import { useAuthContext } from "@/app/provider";
+import { useRouter } from "next/navigation";
+import Constants from "@/data/Constants";
 
 const ImageUpload = () => {
-  const AIModel = [
-    {
-      name: "Google Gemini",
-      icon: "/google.png",
-    },
-    {
-      name: "LLama By Meta",
-      icon: "/meta.png",
-    },
-    {
-      name: "Deepseek",
-      icon: "/deepseek.png",
-    },
-  ];
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [file, setFile] = useState<any>();
   const [model, setModel] = useState<string>();
   const [description, setDescription] = useState<string>();
   const { user } = useAuthContext();
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
   const onImageSelect = (event: ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
@@ -52,7 +42,6 @@ const ImageUpload = () => {
       reader.onload = () => {
         if (reader.result) {
           localStorage.setItem("previewImage", reader.result as string);
-          // console.log("Image saved...");
           setPreviewUrl(reader.result as string);
           setFile(files[0]);
         }
@@ -83,14 +72,13 @@ const ImageUpload = () => {
       return;
     }
 
+    setLoading(true);
     localStorage.setItem("selectedModel", storedModel);
     localStorage.setItem("description", storedDescription);
 
     // console.log("Image Data URL:", storedImage);
     // console.log("Selected AI Model:", storedModel);
     // console.log("Description:", storedDescription);
-
-    // // Simulating an action like sending this data to an API
     console.log("Uploaded Successfully!");
     const uid = uuid4();
     const result = await axios.post("/api/wireframe-to-code", {
@@ -101,6 +89,8 @@ const ImageUpload = () => {
       email: user?.email,
     });
     console.log(result.data);
+    setLoading(false);
+    router.push("/view-code/" + uid);
   };
 
   useEffect(() => {
@@ -171,7 +161,7 @@ const ImageUpload = () => {
               <SelectValue placeholder="Select AI model" />
             </SelectTrigger>
             <SelectContent>
-              {AIModel.map((model, index) => (
+              {Constants?.AIModelList.map((model, index) => (
                 <SelectItem value={model.name} key={index}>
                   <div className="flex gap-2 items-center">
                     <Image
@@ -197,9 +187,13 @@ const ImageUpload = () => {
         </div>
       </div>
       <div className="mt-10 flex items-center justify-center">
-        <Button onClick={onConvertToCodeButtonClick}>
-          {" "}
-          <WandSparkles /> Convert to Code
+        <Button onClick={onConvertToCodeButtonClick} disabled={loading}>
+          {loading ? (
+            <Loader2Icon className="animate-spin" />
+          ) : (
+            <WandSparkles />
+          )}{" "}
+          Convert to Code
         </Button>
       </div>
     </div>
