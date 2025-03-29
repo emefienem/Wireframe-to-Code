@@ -1,26 +1,3 @@
-// import dedent from "dedent";
-
-// export default {
-//   PROMPT: dedent``,
-//   AIModelList: [
-//     {
-//       name: "Google Gemini",
-//       icon: "/google.png",
-//       modelName: "google/gemini-2.5-pro-exp-03-25:free",
-//     },
-//     {
-//       name: "LLama By Meta",
-//       icon: "/meta.png",
-//       modelName: "meta-llama/llama-3.3-70b-instruct:free",
-//     },
-//     {
-//       name: "Deepseek",
-//       icon: "/deepseek.png",
-//       modelName: "deepseek/deepseek-chat-v3-0324:free",
-//     },
-//   ],
-// };
-
 import dedent from "dedent";
 export default {
   PROMPT_OLD: dedent`
